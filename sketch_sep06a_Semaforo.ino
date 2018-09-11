@@ -94,5 +94,5 @@ void switchSemaforo()
   paro = millis(); //Aquí voy acumulando el tiempo de encendido del arduino para poder hacer el cambio.
 }
 
-
+// Pues aquí se termina todo jaja.
 
