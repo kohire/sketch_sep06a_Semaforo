@@ -22,6 +22,7 @@ int intervalo = 5000; //El tiempo que se tarda de cambiar el color rojo a verde.
 int paro = 0; // Es el acumulador para cuantas veces el semáforo peatonal sea usado desde la última vez.
 int estado = 0; //Mi estado para saber si está mi botón en HIGH.
 int valorPot = 0;
+
 void setup()
 {
 
@@ -51,11 +52,15 @@ void loop()
   {
     Serial.print("Valor potenciometro:");
     Serial.println(valorPot);
-    switchSemaforo();
-  } else
+  if (valorPot < 5000)
   {
-
+    delay(500);
+  }else
+  {
+    delay(valorPot +1000);
   }
+    switchSemaforo();
+  } //if estado/millis.
 
 }
 
@@ -82,7 +87,7 @@ void switchSemaforo()
   for (int j = 0; j < 6; j++) //Parpadeo del led del peatón.
   {
     digitalWrite(peaton_blanco, HIGH);
-    delay(valorPot);
+    delay(700);
     digitalWrite(peaton_blanco, LOW);
     delay(500);
   }
